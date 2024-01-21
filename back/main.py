@@ -2,6 +2,7 @@
 
 from flask import Flask
 import psycopg2 as psy
+from psycopg2.extras import RealDictCursor
 from os import environ
 
 import dbinit # kinda weird but this just runs the dbinit
@@ -20,8 +21,8 @@ def create_db_conn():
 @app.route("/")
 def hello_world():
     connection = create_db_conn()
-    
-    cursor = connection.cursor()
+
+    cursor = connection.cursor(cursor_factory=RealDictCursor)
     cursor.execute('SELECT * FROM users')
     users = cursor.fetchall()
     
