@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import SignIn from "./pages/signin";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Button } from "react-native-paper";
+import { Button } from "react-native";
 import Home from "./pages/home";
 
 const Stack = createNativeStackNavigator();
