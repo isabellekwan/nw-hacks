@@ -31,7 +31,7 @@ export default function SignIn() {
   };
 
   const nextPage = () => {
-    router.push("/pages/home");
+    router.push("/home");
   };
 
   const handleSubmit = async (event) => {
