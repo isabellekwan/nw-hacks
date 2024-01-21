@@ -1,0 +1,4 @@
+These are the things. Just call these endpoints and then you will get data
+
+/users - returns all users
+/users/{id} - returns users with id
