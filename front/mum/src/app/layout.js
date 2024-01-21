@@ -13,10 +13,9 @@ export default function RootLayout(props) {
   const { children } = props;
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
       </body>
-      {/* <body className={inter.className}>{children}</body> */}
     </html>
   );
 }
