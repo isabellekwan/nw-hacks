@@ -11,7 +11,7 @@ import EditMessage from "./editMessage";
 export default function NextMeds() {
   return (
     <div>
-      <Card sx={{ minWidth: 275, marginTop: 2, marginBottom: 2 }}>
+      <Card sx={{ minWidth: 275, marginTop: 2, marginBottom: 2, backgroundColor: "#94c9a9"}}>
         <CardContent>
           <Typography variant="h3" component="div">
             Your Next Medication:

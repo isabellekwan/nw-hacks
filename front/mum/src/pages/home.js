@@ -4,9 +4,10 @@ import React from "react";
 import Message from "../../components/message";
 import UploadPhoto from "../../components/uploadPhoto";
 import SubmitPhoto from "../../components/submitPhoto";
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import SimpleBottomNavigation from "../../components/Nav";
 import NextMeds from "../../components/nextMeds";
+import Header from "../../components/header";
 /*
 - call on getUser(username) from getData to get their user data, so their username 
 - do like hi {username} or something 
@@ -15,13 +16,16 @@ import NextMeds from "../../components/nextMeds";
 function Home() {
   return (
     <div>
-      <Typography variant="h1" gutterBottom>
+      <Header/>
+      <Typography variant="h1" gutterBottom style={{ color: "#004f2d" }}>
         Hi Username!
       </Typography>
       <Message />
       <NextMeds />
-      <UploadPhoto />
-      <SubmitPhoto />
+      <div style={{ display: "flex" }}>
+        <UploadPhoto style={{ flex: 1, marginRight: "10px" }} />
+        <SubmitPhoto style={{ flex: 1 }} />
+      </div>
       <SimpleBottomNavigation />
     </div>
   );

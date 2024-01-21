@@ -13,7 +13,7 @@ export default function Message() {
 
   return (
     <div>
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ minWidth: 275, border: "2px solid #004f2d" }}>
         <CardContent>
           <Typography variant="h5" component="div">
             Your Current Message:
