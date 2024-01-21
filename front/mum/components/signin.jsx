@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import InputAdornment from "@mui/material/InputAdornment";
 import Box from "@mui/material/Box";
@@ -8,9 +9,12 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Typography } from "@mui/material";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
+import { useRouter } from "next/navigation";
 import getUser from "@/api/getData";
 
 export default function SignIn() {
+  const router = useRouter();
+
   const [showPass, setShowPass] = useState(false);
 
   const [username, setUsername] = useState("");
@@ -26,6 +30,10 @@ export default function SignIn() {
     event.preventDefault();
   };
 
+  const nextPage = () => {
+    router.push("/pages/home");
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -39,14 +47,16 @@ export default function SignIn() {
     setIsFormValid(true);
     try {
       // Call the postData function with username and password
-      const response = await getUser(username);
+      //   const response = await getUser(username);
 
       // Handle the response as needed
-      console.log("Response:", response);
+      //   console.log("Response:", response);
 
       // Clear the form fields after successful submission (if needed)
       setUsername("");
       setPassword("");
+
+      nextPage();
     } catch (error) {
       console.error("Error:", error);
     }

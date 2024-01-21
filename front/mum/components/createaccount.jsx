@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import InputAdornment from "@mui/material/InputAdornment";
 import Box from "@mui/material/Box";
@@ -8,9 +9,11 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Typography } from "@mui/material";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
+import { useRouter } from "next/navigation";
 import postData from "@/api/getData";
 
 export default function CreateAccount() {
+  const router = useRouter();
   const [showPass, setShowPass] = useState(false);
 
   const [username, setUsername] = useState("");
@@ -25,6 +28,10 @@ export default function CreateAccount() {
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
+  };
+
+  const nextPage = () => {
+    router.push("/pages/home");
   };
 
   const handleSubmit = async (event) => {
@@ -44,14 +51,16 @@ export default function CreateAccount() {
     setIsFormValid(true);
     try {
       // Call the postData function with username and password
-      const response = await postData(username, password);
+      // const response = await postData(username, password);
 
-      // Handle the response as needed
-      console.log("Response:", response);
+      // // Handle the response as needed
+      // console.log("Response:", response);
 
       // Clear the form fields after successful submission (if needed)
       setUsername("");
       setPassword("");
+
+      nextPage();
     } catch (error) {
       console.error("Error:", error);
     }
