@@ -10,15 +10,17 @@ conn = psycopg2.connect(
 # Open a cursor to perform database operations
 cur = conn.cursor()
 
+cur.execute('DROP TABLE users')
+
 # Execute a command: this creates a new table
 cur.execute('CREATE TABLE IF NOT EXISTS users('
             'id serial,'
             'email varchar(100),'
-            'firstname varchar(50),'
-            'lastname varchar(50))')
+            'username varchar(50),'
+            'password varchar(50))')
 
-cur.execute('INSERT INTO users (id, email, firstname, lastname)'
-            'VALUES (default, \'test@gmail.com\', \'Evan\', \'Dyce\')')
+cur.execute('INSERT INTO users (id, email, username, password)'
+            'VALUES (default, \'test@gmail.com\', \'EvanDyce\', \'balls!!!\')')
 
 conn.commit()
 
