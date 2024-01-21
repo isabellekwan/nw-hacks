@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 import CreateAccount from "../../components/createaccount";
 import SignIn from "../../components/signin";
-
+import Header from "../../components/header";
 
 
 function Login() {
@@ -14,8 +14,10 @@ function Login() {
   const [signup, setSignup] = useState(false);
 
   return (
-    <div>
-      <div>
+    <body style={{backgroundRepeat: "none"}}>
+      <Header/>
+    <div style={{backgroundColor: "black"}}>
+      <div style={{paddingTop: "5vw", textAlign: "center"}}>
         <Button
           variant="outlined"
           sx={{
@@ -35,7 +37,7 @@ function Login() {
 
       <br />
 
-      <div>
+      <div style={{textAlign: "center"}}>
         <Button
           variant="outlined"
           sx={{
@@ -53,6 +55,7 @@ function Login() {
         {signup && <CreateAccount />}
       </div>
     </div>
+    </body>
   );
 }
 
