@@ -21,8 +21,25 @@ def create_db_conn():
 @app.route("/")
 def hello_world():
     connection = create_db_conn()
-
     cursor = connection.cursor(cursor_factory=RealDictCursor)
+
+    cursor.execute('INSERT INTO users (id, email, firstname, lastname)'
+            'VALUES (default, \'test@gmail.com\', \'Ethan\', \'Saw\')')
+    cursor.execute('SELECT * FROM users')
+
+    users = cursor.fetchall()
+
+    connection.commit()
+    cursor.close()
+    connection.close()
+    
+    return users
+
+@app.route("/users", methods = ['GET'])
+def get_users():
+    connection = create_db_conn()
+    cursor = connection.cursor(cursor_factory=RealDictCursor)
+
     cursor.execute('SELECT * FROM users')
     users = cursor.fetchall()
     
@@ -30,6 +47,9 @@ def hello_world():
     connection.close()
     
     return users
+
+# @app.route("/users", methods = ['POST'])
+# def add_user()
 
 
 if __name__ == "__main__":
