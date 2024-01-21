@@ -17,6 +17,7 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
+
   );
 }
 
@@ -26,5 +27,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  text: {
+    fontSize: 24, // Set your desired font size
+    fontFamily: 'ArchivoBlack-Regular',
   },
 });
